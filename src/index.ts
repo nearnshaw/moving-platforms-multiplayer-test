@@ -12,7 +12,7 @@ export async function main() {
 	const serverUrl = realm.realmInfo?.isPreview ? 'ws://127.0.0.1:3000/ws/localScene' : 'wss://scene-state-server.decentraland.org/ws/MaximoCossetti.dcl.eth'
 	const networkedEntityFactory = await createNetworkTransport(serverUrl)
 
-	const inAServer = isServer && (await isServer({}))
+	const inAServer = await isServer({})
 
 	// Instantiate base models
 	GltfContainer.create(engine.addEntity(), {
